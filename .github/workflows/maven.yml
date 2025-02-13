@@ -1,0 +1,34 @@
+name: Maven Build
+
+on:
+  push:
+    branches: [ "main" ]
+    paths-ignore:
+      - '.gitignore'
+      - '.sdkmanrc'
+      - 'README.md'
+      - 'LICENSE'
+      - 'Taskfile.yml'
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: 21
+          distribution: 'temurin'
+          cache: 'maven'
+
+      - name: Make Maven wrapper executable
+        run: chmod +x mvnw
+
+      - name: Build with Maven
+        run: ./mvnw -ntp verify
