@@ -4,7 +4,7 @@ vars:
   GOOS: "{{default OS .GOOS}}"
   MVNW: '{{if eq .GOOS "windows"}}mvnw.cmd{{else}}./mvnw{{end}}'
   SLEEP_CMD: '{{if eq .GOOS "windows"}}timeout{{else}}sleep{{end}}'
-  IMAGE_NAME: 'sivaprasadreddy/spring-monolith-workshop'
+  IMAGE_NAME: 'sivaprasadreddy/spring-modulith-workshop'
   DC_FILE: "compose.yml"
 
 tasks:

@@ -17,8 +17,8 @@ $ docker pull openzipkin/zipkin:3.4.4
 ## Project Local Setup
 
 ```shell
-$ git clone https://github.com/sivaprasadreddy/spring-monolith-workshop.git
-$ cd spring-monolith-workshop
+$ git clone https://github.com/sivaprasadreddy/spring-modulith-workshop.git
+$ cd spring-modulith-workshop
 $ ./mvnw clean verify
 ```
 

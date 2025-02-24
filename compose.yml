@@ -23,9 +23,9 @@ services:
     ports:
       - '9411:9411'
 
-  spring-monolith-workshop:
-    image: sivaprasadreddy/spring-monolith-workshop
-    container_name: spring-monolith-workshop
+  spring-modulith-workshop:
+    image: sivaprasadreddy/spring-modulith-workshop
+    container_name: spring-modulith-workshop
     environment:
       SPRING_PROFILES_ACTIVE: docker
       SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.postgresql.Driver

@@ -7,19 +7,19 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.4.2</version>
+        <version>3.4.3</version>
         <relativePath/>
     </parent>
     <groupId>com.sivalabs</groupId>
-    <artifactId>spring-monolith-workshop</artifactId>
+    <artifactId>spring-modulith-workshop</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>spring-monolith-workshop</name>
+    <name>spring-modulith-workshop</name>
 
     <properties>
         <java.version>21</java.version>
         <datasource-micrometer-spring-boot.version>1.0.6</datasource-micrometer-spring-boot.version>
-        <spotless.version>2.44.2</spotless.version>
+        <spotless.version>2.44.3</spotless.version>
         <dockerImageName>sivaprasadreddy/${project.artifactId}</dockerImageName>
     </properties>
 
