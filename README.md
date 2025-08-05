@@ -1,5 +1,5 @@
 # Spring Modulith Workshop
-An e-commerce application following the package-by-layer code organization.
+A bookstore application following the package-by-layer code organization.
 
 In this workshop, we will refactor this application to follow Modular Monolith architecture 
 using [Spring Modulith](https://spring.io/projects/spring-modulith).

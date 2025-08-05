@@ -55,7 +55,7 @@ For convenience, these dependencies are already added.
 
 ```xml
 <properties>
-    <spring-modulith.version>1.3.2</spring-modulith.version>
+    <spring-modulith.version>1.4.2</spring-modulith.version>
 </properties>
 
 <dependencyManagement>
