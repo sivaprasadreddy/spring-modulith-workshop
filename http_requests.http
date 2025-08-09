@@ -1,5 +1,8 @@
-### Get products
-GET http://127.0.0.1:8080/api/products
+### Get all products
+GET http://localhost:8080/api/products
+
+### Get product by code
+GET http://localhost:8080/api/products/P100
 
 ### Create a new order
 POST http://localhost:8080/api/orders
@@ -20,5 +23,8 @@ Content-Type: application/json
   }
 }
 
-###
+### Get all orders
+GET http://localhost:8080/api/orders
 
+### Get orders by orderNumber
+GET http://localhost:8080/api/orders/ORDER-100001

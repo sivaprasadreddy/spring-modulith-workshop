@@ -42,4 +42,10 @@ class ProductRestControllerTests {
                 .andExpect(jsonPath("$.code", is("P100")))
                 .andExpect(jsonPath("$.name", is("The Hunger Games")));
     }
+
+    @Test
+    void shouldGetNotFoundWhenProductCodeNotExists() throws Exception {
+        mockMvc.perform(get("/api/products/{code}", "NON_EXISTING_CODE"))
+                .andExpect(status().isNotFound());
+    }
 }
