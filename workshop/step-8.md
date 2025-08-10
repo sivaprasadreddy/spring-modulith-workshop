@@ -1,6 +1,7 @@
 # 8. Explicit module dependencies
 
-**7. Explicitly specify/restrict module dependencies.**
+By default, a module can depend on any other module if there are no circular dependencies.
+But we can explicitly specify module dependencies to restrict to a specific set of modules.
 
 Add `package-info.java` in `com.sivalabs.bookstore.orders` package with the following content:
 

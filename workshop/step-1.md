@@ -8,7 +8,7 @@ $ cd spring-modulith-workshop
 $ ./mvnw clean verify
 ```
 
-The current code organization follows package-by-layer.
+The current code organization follows **package-by-layer**.
 
 ```
 bookstore

@@ -1,15 +1,43 @@
 # 10. Testing modules in isolation
 
+* We can test modules independently using `@ApplicationModuleTest`.
+* BootstrapMode: `STANDALONE`(default), `DIRECT_DEPENDENCIES`, `ALL_DEPENDENCIES`.
 
+## Testing modules by loading the beans of that module
 
-**9. Testing modules independently using `@ApplicationModuleTest`**
-
-Replace `@SpringBootTest` with `@ApplicationModuleTest`
+* Replace `@SpringBootTest` with `@ApplicationModuleTest`
 in `ProductRestControllerTests`, `InventoryIntegrationTests`, `OrderRestControllerTests`.
-
-**10. Verify event published or not.**
+* Provide dependencies of other modules as MockBeans
 
 In `OrderRestControllerTests`, update `shouldCreateOrderSuccessfully()` test as follows:
+
+```java
+@ApplicationModuleTest(webEnvironment = RANDOM_PORT)
+@Import(TestcontainersConfiguration.class)
+@AutoConfigureMockMvc
+class OrderRestControllerTests {
+    @Autowired
+    private MockMvc mockMvc;
+
+    @Autowired
+    private OrderService orderService;
+
+    @MockitoBean
+    ProductApi productApi;
+
+    @BeforeEach
+    void setUp() {
+        ProductDto product = new ProductDto("P100", "The Hunger Games", "", null, new BigDecimal("34.0"));
+        given(productApi.getByCode("P100")).willReturn(Optional.of(product));
+    }
+    
+    //....
+}
+
+```
+
+## Verify event published successfully
+If the module publishes an event, we can use `AssertablePublishedEvents` to verify the event published successfully.
 
 ```java
 @Test
@@ -33,9 +61,8 @@ void shouldCreateOrderSuccessfully(AssertablePublishedEvents events) throws Exce
 
 Check the `event_publication` table for the event processing history.
 
-Explain external event publication support.
 
-**11. Publish event and verify the expected behavior.**
+## Testing inbound event handlers
 
 In `InventoryIntegrationTests`, update `handleOrderCreatedEvent()` test as follows:
 

@@ -1,7 +1,7 @@
 # 11. Create C4 Model documentation
 
 
-In `ModularityTests.java` add the `createModuleDocumentation()` test.
+In `ModularityTests.java` update the `verifiesModularStructure()` test.
 
 ```java
 package com.sivalabs.bookstore;
@@ -16,10 +16,6 @@ class ModularityTests {
     @Test
     void verifiesModularStructure() {
         modules.verify();
-    }
-
-    @Test
-    void createModuleDocumentation() {
         new Documenter(modules).writeDocumentation();
     }
 }

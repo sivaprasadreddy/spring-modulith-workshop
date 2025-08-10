@@ -1,7 +1,8 @@
 # 5. Understand NamedInterfaces
 
+We can expose additional packages or types to other modules using `NamedInterface` annotation.
 
-**5. Expose `com.sivalabs.bookstore.orders.domain.models` and `com.sivalabs.bookstore.orders.domain.events` packages as named-interfaces.**
+Expose `com.sivalabs.bookstore.orders.domain.models` and `com.sivalabs.bookstore.orders.domain.events` packages as named-interfaces.
 
 Add `package-info.java` in `com.sivalabs.bookstore.orders.domain.models` package with the following content:
 

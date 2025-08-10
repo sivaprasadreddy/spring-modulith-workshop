@@ -64,6 +64,7 @@ class ModularityTest {
 ```
 
 Now run this test, and it will fail.
+
 You can see all the violations of modular structure in the console output.
 
 ```shell

@@ -1,4 +1,5 @@
 # 4. Understand OPEN type modules
+An `OPEN` type module is a module that exposes all its types, including sub-packages, to other modules.
 
 1. **Move `PagedResult` class into `common/models` package.**`
 

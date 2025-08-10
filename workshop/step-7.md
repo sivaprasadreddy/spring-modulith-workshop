@@ -1,8 +1,8 @@
 # 7. Verify module circular dependency violations
 
-**8. Try to create circular-dependency between two modules.**
+Try to create a circular-dependency between two modules.
 
-Make `InventoryService` as a `public` class and autowire in `OrderServiceImpl`.
+Make `InventoryService` as a `public` class and autowire in `OrderService`.
 
 Run `ModularityTests` and the test should FAIL with the following error:
 
