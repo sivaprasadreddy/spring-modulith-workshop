@@ -13,12 +13,12 @@ The current code organization follows **package-by-layer**.
 ```
 bookstore
   |-- config
-  |-- web
-  |-- repositories
-  |-- models
-  |-- exceptions
-  |-- services
   |-- entities
+  |-- exceptions
+  |-- models
+  |-- repositories
+  |-- services
+  |-- web
 ```
 
 ## Package-by-layer Issues
@@ -26,6 +26,12 @@ bookstore
 2. Need to make every class as `public` which allows accessing them from everywhere.
 3. This leads to spaghetti code.
 4. Adding a new feature or modifying an existing feature may break other features.
+
+### Tightly Coupled Code
+![tight-coupled-code.png](../docs/tight-coupled-code.png)
+
+### Goal: Modular Code
+![Modular-Monolith.png](../docs/Modular-Monolith.png)
 
 ## Recommendation
 1. Follow package-by-feature.
