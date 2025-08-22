@@ -8,7 +8,6 @@ The refactored application now follows modular monolith architecture with the fo
 * **Catalog:** This module manages the catalog of products and store data in `catalog` schema.
 * **Orders:** This module implements the order management and store the data in `orders` schema.
 * **Inventory:** This module implements the inventory management and store the data in `inventory` schema.
-* **Notifications:** This module handles the events published by other modules and sends notifications to the interested parties.
 
 **Goals:**
 * Implement each module as independently as possible.
@@ -23,6 +22,5 @@ The refactored application now follows modular monolith architecture with the fo
 * When an Order is successfully created, **Orders** module publishes **"OrderCreatedEvent"**
 * The **"OrderCreatedEvent"** will also be published to external broker like RabbitMQ. Other applications may consume and process those events.
 * **Inventory** module consumes "OrderCreatedEvent" and updates the stock level for the products.
-* **Notifications** module consumes "OrderCreatedEvent" and sends an order confirmation email to the customer.
 
 [Home](../README.md)

@@ -67,6 +67,8 @@ bookstore
       - OrderEventsInventoryHandler.java
 ```
 
+2. Split **GlobalExceptionHandler.java** into separate exception handlers for each module. 
+
 **Create CatalogExceptionHandler.java**
 
 ```java
@@ -111,7 +113,7 @@ class OrdersExceptionHandler extends ResponseEntityExceptionHandler {
 }
 ```
 
-**2. Accordingly, move tests to the new structure**
+**3. Accordingly, move tests to the new package structure**
 
 
 [Next: 3. Add Spring Modulith support](step-3.md)

@@ -2,7 +2,7 @@
 
 Try to create a circular-dependency between two modules.
 
-Make `InventoryService` as a `public` class and autowire in `OrderService`.
+For example, try to autowire `InventoryService` in `OrderService`.
 
 Run `ModularityTests` and the test should FAIL with the following error:
 
