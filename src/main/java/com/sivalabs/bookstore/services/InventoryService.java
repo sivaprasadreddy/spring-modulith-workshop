@@ -8,8 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@Transactional
-class InventoryService {
+public class InventoryService {
     private static final Logger log = LoggerFactory.getLogger(InventoryService.class);
     private final InventoryRepository inventoryRepository;
 
@@ -17,6 +16,7 @@ class InventoryService {
         this.inventoryRepository = inventoryRepository;
     }
 
+    @Transactional
     public void decreaseStockLevel(String productCode, int quantity) {
         log.info("Decrease stock level for product code {} and quantity {}", productCode, quantity);
         var inventory = inventoryRepository.findByProductCode(productCode).orElse(null);
@@ -30,6 +30,7 @@ class InventoryService {
         }
     }
 
+    @Transactional(readOnly = true)
     public Long getStockLevel(String productCode) {
         Long stock = inventoryRepository
                 .findByProductCode(productCode)

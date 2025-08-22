@@ -2,7 +2,7 @@
 
 We can expose additional packages or types to other modules using `NamedInterface` annotation.
 
-Expose `com.sivalabs.bookstore.orders.domain.models` and `com.sivalabs.bookstore.orders.domain.events` packages as named-interfaces.
+Expose `com.sivalabs.bookstore.orders.domain.models` package as named-interface.
 
 Add `package-info.java` in `com.sivalabs.bookstore.orders.domain.models` package with the following content:
 
@@ -13,15 +13,6 @@ package com.sivalabs.bookstore.orders.domain.models;
 import org.springframework.modulith.NamedInterface;
 ```
 
-Add `package-info.java` in `com.sivalabs.bookstore.orders.domain.events` package with the following content:
-
-```java
-@NamedInterface("order-events")
-package com.sivalabs.bookstore.orders.domain.events;
-
-import org.springframework.modulith.NamedInterface;
-```
-
-Run `ModularityTests` and the test should PASS.
+Run `ModularityTests`.
 
 [Next: 6. Verify module boundary violations](step-6.md)

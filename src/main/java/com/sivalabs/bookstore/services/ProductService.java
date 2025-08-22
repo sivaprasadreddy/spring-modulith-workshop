@@ -1,5 +1,6 @@
 package com.sivalabs.bookstore.services;
 
+import com.sivalabs.bookstore.entities.ProductEntity;
 import com.sivalabs.bookstore.models.PagedResult;
 import com.sivalabs.bookstore.models.Product;
 import com.sivalabs.bookstore.repositories.ProductRepository;
@@ -25,11 +26,15 @@ public class ProductService {
         Sort sort = Sort.by("name").ascending();
         int page = pageNo <= 1 ? 0 : pageNo - 1;
         Pageable pageable = PageRequest.of(page, PRODUCT_PAGE_SIZE, sort);
-        Page<Product> productsPage = repo.findAllBy(pageable);
+        Page<Product> productsPage = repo.findAll(pageable).map(this::toProduct);
         return new PagedResult<>(productsPage);
     }
 
     public Optional<Product> getByCode(String code) {
-        return repo.findByCode(code);
+        return repo.findByCode(code).map(this::toProduct);
+    }
+
+    private Product toProduct(ProductEntity entity) {
+        return new Product(entity.getCode(), entity.getName(), entity.getDescription(), entity.getImageUrl(), entity.getPrice());
     }
 }

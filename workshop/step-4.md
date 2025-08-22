@@ -1,16 +1,14 @@
 # 4. Understand OPEN type modules
 An `OPEN` type module is a module that exposes all its types, including sub-packages, to other modules.
 
-1. **Move `PagedResult` class into `common/models` package.**`
-
-```
+```shell
 - Module 'catalog' depends on non-exposed type com.sivalabs.bookstore.common.models.PagedResult within module 'common'!
 
 .....
 .....
 ```
 
-2. **Make `common` module `OPEN` type module.**
+**Make `common` module `OPEN` type module.**
 
 Add `package-info.java` in `com.sivalabs.bookstore.common` package with the following content:
 

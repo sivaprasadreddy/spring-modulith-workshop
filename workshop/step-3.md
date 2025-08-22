@@ -70,9 +70,9 @@ You can see all the violations of modular structure in the console output.
 ```shell
 - Module 'catalog' depends on non-exposed type com.sivalabs.bookstore.common.models.PagedResult within module 'common'!
 
-- Module 'inventory' depends on non-exposed type com.sivalabs.bookstore.orders.domain.events.OrderCreatedEvent within module 'orders'!
-
-- Module 'notifications' depends on non-exposed type com.sivalabs.bookstore.orders.domain.events.OrderCreatedEvent within module 'orders'!
+- Module 'inventory' depends on non-exposed type com.sivalabs.bookstore.orders.domain.models.OrderCreatedEvent within module 'orders'!
+...
+...
 ```
 
-[Next: 4. Add Spring Modulith support](step-4.md)
+[Next: 4. Understand OPEN type modules](step-4.md)
