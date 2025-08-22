@@ -12,13 +12,8 @@ tasks:
     cmds:
       - task: test
   test:
-    deps: [ format ]
     cmds:
       - "{{.MVNW}} clean verify"
-
-  format:
-    cmds:
-      - "{{.MVNW}} spotless:apply"
 
   build_image:
     cmds:
