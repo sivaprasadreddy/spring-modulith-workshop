@@ -82,5 +82,7 @@ class InventoryIntegrationTests {
 }
 ```
 
-[Previous: 9. Event Driven Communication](step-9.md)
+<p align="center">
+[Previous: 9. Event Driven Communication](step-9.md) &nbsp;&nbsp;&nbsp;&nbsp;
 [Next: 11. Create C4 Model documentation](step-11.md)
+</p>

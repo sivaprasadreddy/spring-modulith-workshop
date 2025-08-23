@@ -25,5 +25,7 @@ import org.springframework.modulith.ApplicationModule;
 
 Run `ModularityTest`.
 
-[Previous: 3. Add Spring Modulith support](step-3.md)
+<p align="center">
+[Previous: 3. Add Spring Modulith support](step-3.md) &nbsp;&nbsp;&nbsp;&nbsp;
 [Next: 5. Understand NamedInterfaces](step-5.md)
+</p>

@@ -27,5 +27,7 @@ Cycle detected: Slice catalog ->
 
 Remove the line `OrderCreatedEvent event = new OrderCreatedEvent(null, null, 0, null);`.
 
-[Previous: 6. Verify module boundary violations](step-6.md)
+<p align="center">
+[Previous: 6. Verify module boundary violations](step-6.md) &nbsp;&nbsp;&nbsp;&nbsp;
 [Next: 8. Explicit module dependencies](step-8.md)
+</p>

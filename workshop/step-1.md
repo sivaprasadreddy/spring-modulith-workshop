@@ -37,5 +37,7 @@ bookstore
 1. Follow package-by-feature.
 2. Make a class `public` only when it's necessary.
 
-[Previous: Home](../README.md) 
+<p align="center">
+[Previous: Home](../README.md) &nbsp;&nbsp;&nbsp;&nbsp;
 [Next: 2. Follow package-by-feature](step-2.md)
+</p>

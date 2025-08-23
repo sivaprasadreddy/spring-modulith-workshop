@@ -128,5 +128,7 @@ public record OrderCreatedEvent(String orderNumber) {}
 * Create a new order
 * You should see the event in the queue.
 
-[Previous: 8. Explicit module dependencies](step-8.md)
+<p align="center">
+[Previous: 8. Explicit module dependencies](step-8.md) &nbsp;&nbsp;&nbsp;&nbsp;
 [Next: 10. Testing modules in isolation](step-10.md)
+</p>
