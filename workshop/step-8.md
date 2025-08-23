@@ -1,7 +1,7 @@
 # 8. Explicit module dependencies
 
 By default, a module can depend on any other module if there are no circular dependencies.
-But we can explicitly specify module dependencies to restrict to a specific set of modules.
+But we can explicitly specify module dependencies to restrict dependency on a specific set of modules.
 
 Add `package-info.java` in `com.sivalabs.bookstore.orders` package with the following content:
 
@@ -33,4 +33,5 @@ You can explicitly specify `common` module as a dependency of `orders` module.`
 
 ![ij-modulith-add-explicit-dependency.png](../docs/ij-modulith-add-explicit-dependency.png)
 
+[Previous: 7. Verify module circular dependency violations](step-7.md)
 [Next: 9. Event Driven Communication](step-9.md)

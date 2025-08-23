@@ -23,4 +23,5 @@ class ModularityTest {
 
 The C4 Model documentation is generated under `target/spring-modulith-docs` directory.
 
+[Previous: 10. Testing modules in isolation](step-10.md)
 [Next: 12. Conclusion](step-12.md)

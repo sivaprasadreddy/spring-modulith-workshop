@@ -30,4 +30,9 @@ public class CatalogApi {
 
 Now, in `OrderService` use `CatalogApi` instead of `ProductService` and use it to get the product details.
 
+Run `ModularityTest`. 
+
+Test should PASS.
+
+[Previous: 5. Understand NamedInterfaces](step-5.md)
 [Next: 7. Verify module circular dependency violations](step-7.md)

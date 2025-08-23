@@ -35,12 +35,13 @@
 ```
 
 ## IntelliJ IDEA Support for Spring Modulith
+IntelliJ IDEA provides support for Spring Modulith. Check out the documentation [here](https://www.jetbrains.com/help/idea/spring-modulith.html).
 
-Module Indicators in the package structure:
+**Module Indicators in the package structure:**
 
 ![intellij-spring-modulith-support-1.png](../docs/intellij-spring-modulith-support-1.png)
 
-Modules view in the Structure toolwindow:
+**Modules view in the Structure toolwindow:**
 
 ![intellij-spring-modulith-modules-in-structure-toolwindow.png](../docs/intellij-spring-modulith-modules-in-structure-toolwindow.png)
 
@@ -88,4 +89,7 @@ You can see all the violations of modular structure in the console output.
 ## IntelliJ IDEA shows violations in the editor
 ![ij-modulith-violation-1.png](../docs/ij-modulith-violation-1.png)
 
+We will fix these violations in the next steps.
+
+[Previous: 2. Follow package-by-feature](step-2.md)
 [Next: 4. Understand OPEN type modules](step-4.md)

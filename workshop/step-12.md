@@ -23,4 +23,5 @@ The refactored application now follows modular monolith architecture with the fo
 * The **"OrderCreatedEvent"** will also be published to external broker like RabbitMQ. Other applications may consume and process those events.
 * **Inventory** module consumes "OrderCreatedEvent" and updates the stock level for the products.
 
+[Previous: 11. Create C4 Model documentation](step-11.md)
 [Home](../README.md)
