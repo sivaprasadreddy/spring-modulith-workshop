@@ -10,6 +10,8 @@ An `OPEN` type module is a module that exposes all its types, including sub-pack
 
 **Make `common` module `OPEN` type module.**
 
+![ij-modulith-violation-quick-fix.png](../docs/ij-modulith-violation-quick-fix.png)
+
 Add `package-info.java` in `com.sivalabs.bookstore.common` package with the following content:
 
 ```java
@@ -19,6 +21,6 @@ package com.sivalabs.bookstore.common;
 import org.springframework.modulith.ApplicationModule;
 ```
 
-Run `ModularityTests`.
+Run `ModularityTest`.
 
 [Next: 5. Understand NamedInterfaces](step-5.md)

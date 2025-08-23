@@ -1,7 +1,7 @@
 # 11. Create C4 Model documentation
 
 
-In `ModularityTests.java` update the `verifiesModularStructure()` test.
+In `ModularityTest.java` update the `verifiesModularStructure()` test.
 
 ```java
 package com.sivalabs.bookstore;
@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.modulith.core.ApplicationModules;
 import org.springframework.modulith.docs.Documenter;
 
-class ModularityTests {
+class ModularityTest {
     static ApplicationModules modules = ApplicationModules.of(BookStoreApplication.class);
 
     @Test

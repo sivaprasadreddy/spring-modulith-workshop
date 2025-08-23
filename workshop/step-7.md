@@ -1,15 +1,26 @@
 # 7. Verify module circular dependency violations
 
-Try to create a circular-dependency between two modules.
+Spring Modulith checks for circular dependencies between modules and reports it as a violation.
 
-For example, try to autowire `InventoryService` in `OrderService`.
+The `orders` module depends on the `catalog` module.
 
-Run `ModularityTests` and the test should FAIL with the following error:
+Let's try to create a circular-dependency between two modules.
+
+For example, try to use `OrderCreatedEvent` in `CatalogApi`.
+
+```java
+public Optional<Product> getByCode(String code) {
+    OrderCreatedEvent event = new OrderCreatedEvent(null, null, 0, null);
+    return productService.getByCode(code);
+}
+```
+
+Run `ModularityTest` and the test should FAIL with the following error:
 
 ```shell
-Cycle detected: Slice inventory -> 
+Cycle detected: Slice catalog -> 
                 Slice orders -> 
-                Slice inventory
+                Slice catalog
 ```
 
 [Next: 8. Explicit module dependencies](step-8.md)

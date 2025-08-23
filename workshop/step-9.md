@@ -1,6 +1,6 @@
 # 9. Event Driven Communication
 
-* Prefer event-driven communication between modules.
+Prefer event-driven communication between modules.
 
 ## Using Spring's ApplicationEventPublisher
 
@@ -25,6 +25,8 @@ class OrderCreatedEventHandler {
 ```
 
 **Issue:** The event handler is executed in the same transaction as the event publication.
+
+Demo: Place an Order and check the transaction in OrderService.createOrder() and OrderCreatedEventHandler.handle().
 
 ## Using TransactionalEventListener
 
@@ -54,7 +56,20 @@ So, if the event handler fails, the event may be lost.
 
 ## Using Spring Modulith Event Publishing
 
+Add the following dependency to your project.
+
+```xml
+<dependency>
+    <groupId>org.springframework.modulith</groupId>
+    <artifactId>spring-modulith-events-api</artifactId>
+</dependency>
+```
+
+Use the `@ApplicationModuleListener` annotation to register event handlers instead of `@EventListener`.
+
 ```java
+import org.springframework.modulith.events.ApplicationModuleListener;
+
 @Component
 class OrderCreatedEventHandler {
     /*
@@ -69,14 +84,13 @@ class OrderCreatedEventHandler {
 }
 ```
 
+Now run the test `OrderRestControllerTests.shouldCreateOrderSuccessfully()` test.
+Using the [Spring Debugger plugin](https://plugins.jetbrains.com/plugin/25302-spring-debugger), you should be able to see that the event handler is executed in a separate transaction.
+
 ## The Event Publication Registry
 The events can be persisted in a database so that they can be processed without losing then on application failures.
 
 ```xml
-<dependency>
-    <groupId>org.springframework.modulith</groupId>
-    <artifactId>spring-modulith-events-api</artifactId>
-</dependency>
 <dependency>
     <groupId>org.springframework.modulith</groupId>
     <artifactId>spring-modulith-starter-jdbc</artifactId>
@@ -85,9 +99,12 @@ The events can be persisted in a database so that they can be processed without 
 
 ```properties
 spring.modulith.events.jdbc.schema-initialization.enabled=true
-spring.modulith.events.completion-mode=update|delete|archive
+# completion-mode options: update | delete | archive
+spring.modulith.events.completion-mode=update
 spring.modulith.events.republish-outstanding-events-on-restart=true
 ```
+
+Start the application, create an order and check the data in `event_publication` table.
 
 ## Externalizing Events
 The events can also be published to an external messaging system like Kafka or RabbitMQ.
@@ -105,5 +122,10 @@ import org.springframework.modulith.events.Externalized;
 @Externalized("BookStoreExchange::orders.new")
 public record OrderCreatedEvent(String orderNumber) {}
 ```
+
+* Login into RabbitMQ Admin Console http://localhost:15672 using the credentials `guest/guest`. 
+* Go to Queues and Streams tab and check the `new-orders` queue.
+* Create a new order
+* You should see the event in the queue.
 
 [Next: 10. Testing modules in isolation](step-10.md)

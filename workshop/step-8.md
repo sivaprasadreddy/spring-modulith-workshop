@@ -12,4 +12,25 @@ package com.sivalabs.bookstore.orders;
 import org.springframework.modulith.ApplicationModule;
 ```
 
+Add the following API endpoint in `OrderRestController.java`:
+
+```java
+@GetMapping("/test")
+PagedResult<OrderView> getOrdersPaged() {
+    return null;
+}
+```
+
+![ij-modulith-violation-using-undeclared-modules.png](../docs/ij-modulith-violation-using-undeclared-modules.png)
+
+Run ModularityTest:
+
+```shell
+org.springframework.modulith.core.Violations: - Module 'orders' depends on module 'common' via com.sivalabs.bookstore.orders.web.OrderRestController -> com.sivalabs.bookstore.common.models.PagedResult. Allowed targets: catalog.
+```
+
+You can explicitly specify `common` module as a dependency of `orders` module.`
+
+![ij-modulith-add-explicit-dependency.png](../docs/ij-modulith-add-explicit-dependency.png)
+
 [Next: 9. Event Driven Communication](step-9.md)

@@ -23,18 +23,19 @@ class OrderRestControllerTests {
     private OrderService orderService;
 
     @MockitoBean
-    ProductApi productApi;
+    CatalogApi catalogApi;
 
     @BeforeEach
     void setUp() {
-        ProductDto product = new ProductDto("P100", "The Hunger Games", "", null, new BigDecimal("34.0"));
-        given(productApi.getByCode("P100")).willReturn(Optional.of(product));
+        Product product = new Product("P100", "The Hunger Games", "", null, new BigDecimal("34.0"));
+        given(catalogApi.getByCode("P100")).willReturn(Optional.of(product));
     }
     
     //....
 }
-
 ```
+
+Check in the logs that only the specified module dependencies are loaded.
 
 ## Verify event published successfully
 If the module publishes an event, we can use `AssertablePublishedEvents` to verify the event published successfully.
@@ -42,15 +43,15 @@ If the module publishes an event, we can use `AssertablePublishedEvents` to veri
 ```java
 @Test
 void shouldCreateOrderSuccessfully(AssertablePublishedEvents events) throws Exception {
-    mockMvc.perform(
-        post("/api/orders")
-        .contentType(MediaType.APPLICATION_JSON)
-        .content(
-            """
-             ...
-             ...
-           """))
-        .andExpect(status().isCreated());
+    MvcTestResult testResult = mockMvcTester.post().uri("/api/orders")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content("""
+                    {
+                       ...
+                    }
+                    """)
+            .exchange();
+    assertThat(testResult).hasStatus(HttpStatus.CREATED);
 
     assertThat(events)
             .contains(OrderCreatedEvent.class)
@@ -59,20 +60,25 @@ void shouldCreateOrderSuccessfully(AssertablePublishedEvents events) throws Exce
 }
 ```
 
-Check the `event_publication` table for the event processing history.
-
-
 ## Testing inbound event handlers
 
 In `InventoryIntegrationTests`, update `handleOrderCreatedEvent()` test as follows:
 
 ```java
-@Test
-void handleOrderCreatedEvent(Scenario scenario) {
-    var customer = new Customer("Siva", "siva@gmail.com", "9987654");
-    String productCode = "P114";
-    var event = new OrderCreatedEvent(UUID.randomUUID().toString(), productCode, 2, customer);
-    scenario.publish(event).andWaitForStateChange(() -> inventoryService.getStockLevel(productCode) == 598);
+@ApplicationModuleTest(webEnvironment = RANDOM_PORT)
+@Import(TestcontainersConfiguration.class)
+class InventoryIntegrationTests {
+    //...
+    @Test
+    void handleOrderCreatedEvent(Scenario scenario) {
+        var productCode = "P114";
+        var customer = new Customer("Siva", "siva@gmail.com", "9987654");
+        var event = new OrderCreatedEvent(UUID.randomUUID().toString(), productCode, 2, customer);
+
+        scenario.publish(event)
+                .andWaitForStateChange(() -> inventoryService.getStockLevel(productCode) == 598)
+                .andVerify(result -> assertThat(result).isTrue());
+    }
 }
 ```
 

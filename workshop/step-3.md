@@ -34,6 +34,16 @@
 </dependencies>
 ```
 
+## IntelliJ IDEA Support for Spring Modulith
+
+Module Indicators in the package structure:
+
+![intellij-spring-modulith-support-1.png](../docs/intellij-spring-modulith-support-1.png)
+
+Modules view in the Structure toolwindow:
+
+![intellij-spring-modulith-modules-in-structure-toolwindow.png](../docs/intellij-spring-modulith-modules-in-structure-toolwindow.png)
+
 ## Understand Spring Modulith concepts
 * Top-level Modules
 * Nested Modules
@@ -74,5 +84,8 @@ You can see all the violations of modular structure in the console output.
 ...
 ...
 ```
+
+## IntelliJ IDEA shows violations in the editor
+![ij-modulith-violation-1.png](../docs/ij-modulith-violation-1.png)
 
 [Next: 4. Understand OPEN type modules](step-4.md)
