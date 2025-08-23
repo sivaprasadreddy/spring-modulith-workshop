@@ -27,12 +27,13 @@ class InventoryIntegrationTests {
 
     @Test
     void handleOrderCreatedEvent() {
-        OrderCreatedEvent orderCreatedEvent = new OrderCreatedEvent(
-                UUID.randomUUID().toString(), "P100", 2, new Customer("Siva", "siva@gmail.com", "9987654"));
-        eventPublisher.publishEvent(orderCreatedEvent);
+        var customer = new Customer("Siva", "siva@gmail.com", "9987654");
+        var productCode = "P114";
+        var event = new OrderCreatedEvent(UUID.randomUUID().toString(), productCode, 2, customer);
+        eventPublisher.publishEvent(event);
 
         Awaitility.await().atMost(Duration.ofSeconds(10)).untilAsserted(() -> {
-            assertThat(inventoryService.getStockLevel("P100")).isEqualTo(398);
+            assertThat(inventoryService.getStockLevel(productCode)).isEqualTo(598);
         });
     }
 }
