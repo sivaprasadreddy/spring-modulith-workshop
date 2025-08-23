@@ -115,7 +115,5 @@ class OrdersExceptionHandler extends ResponseEntityExceptionHandler {
 
 **3. Accordingly, move tests to the new package structure**
 
-<p align="center">
 [Previous: 1. Understand existing code](step-1.md) &nbsp;&nbsp;&nbsp;&nbsp;
 [Next: 3. Add Spring Modulith support](step-3.md)
-</p>

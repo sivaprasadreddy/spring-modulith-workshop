@@ -22,7 +22,6 @@ import org.springframework.modulith.NamedInterface;
 
 Run `ModularityTest`.
 
-<p align="center">
+
 [Previous: 4. Understand OPEN type modules](step-4.md) &nbsp;&nbsp;&nbsp;&nbsp;
 [Next: 6. Verify module boundary violations](step-6.md)
-</p>

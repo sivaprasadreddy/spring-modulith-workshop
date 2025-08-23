@@ -34,7 +34,6 @@ Run `ModularityTest`.
 
 Test should PASS.
 
-<p align="center">
+
 [Previous: 5. Understand NamedInterfaces](step-5.md) &nbsp;&nbsp;&nbsp;&nbsp;
 [Next: 7. Verify module circular dependency violations](step-7.md)
-</p>

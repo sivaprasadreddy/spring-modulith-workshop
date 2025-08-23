@@ -33,7 +33,6 @@ You can explicitly specify `common` module as a dependency of `orders` module.`
 
 ![ij-modulith-add-explicit-dependency.png](../docs/ij-modulith-add-explicit-dependency.png)
 
-<p align="center">
+
 [Previous: 7. Verify module circular dependency violations](step-7.md) &nbsp;&nbsp;&nbsp;&nbsp;
 [Next: 9. Event Driven Communication](step-9.md)
-</p>

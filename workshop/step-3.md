@@ -91,7 +91,5 @@ You can see all the violations of modular structure in the console output.
 
 We will fix these violations in the next steps.
 
-<p align="center">
 [Previous: 2. Follow package-by-feature](step-2.md) &nbsp;&nbsp;&nbsp;&nbsp;
 [Next: 4. Understand OPEN type modules](step-4.md)
-</p>
