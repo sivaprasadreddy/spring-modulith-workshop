@@ -4,6 +4,8 @@ A bookstore application currently following the **package-by-layer** code organi
 In this workshop, we will refactor this application to follow Modular Monolith architecture 
 using [Spring Modulith](https://spring.io/projects/spring-modulith).
 
+Workshop LiveStream Video: https://www.youtube.com/watch?v=UXe6xuV-URY
+
 ![spring-modulith-workshop.png](docs/spring-modulith-workshop.png)
 
 ## Prerequisites
